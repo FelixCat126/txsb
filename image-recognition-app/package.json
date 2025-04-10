@@ -1,0 +1,35 @@
+{
+  "name": "image-recognition-app",
+  "version": "1.0.0",
+  "description": "一个基于Vue2的图像识别应用",
+  "scripts": {
+    "serve": "node ./node_modules/@vue/cli-service/bin/vue-cli-service.js serve",
+    "build": "node ./node_modules/@vue/cli-service/bin/vue-cli-service.js build",
+    "lint": "node ./node_modules/@vue/cli-service/bin/vue-cli-service.js lint",
+    "download-models": "node ./scripts/download-models.js",
+    "download-real-yolo": "download_real_yolo.bat",
+    "prestart": "npm run download-models",
+    "start": "npm run serve"
+  },
+  "dependencies": {
+    "@tensorflow-models/coco-ssd": "^2.2.3",
+    "@tensorflow/tfjs": "^4.22.0",
+    "@tensorflow/tfjs-backend-webgl": "^4.22.0",
+    "@tensorflow/tfjs-converter": "^4.11.0",
+    "@tensorflow/tfjs-core": "^4.11.0",
+    "echarts": "^5.4.3",
+    "exif-js": "^2.3.0",
+    "vue": "^2.7.14",
+    "vue-router": "^3.5.3"
+  },
+  "devDependencies": {
+    "@vue/cli-service": "~5.0.0",
+    "webpack": "^5.0.0",
+    "webpack-cli": "^4.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

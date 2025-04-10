@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <title>图像识别系统</title>
+  <style>
+    .error-container {
+      display: none;
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 4px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    .error-title {
+      color: #f56c6c;
+      margin-bottom: 10px;
+    }
+    .error-message {
+      color: #666;
+      margin-bottom: 20px;
+    }
+    .error-button {
+      background-color: #409eff;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <noscript>
+    <strong>很抱歉，本应用需要启用JavaScript才能正常工作。请启用后继续。</strong>
+  </noscript>
+  <div id="app"></div>
+  <div id="error-container" class="error-container">
+    <h2 class="error-title">应用出现问题</h2>
+    <p class="error-message">很抱歉，应用加载过程中出现了问题。</p>
+    <button class="error-button" onclick="window.location.reload()">重新加载</button>
+  </div>
+  <script>
+    // 添加全局错误处理
+    window.addEventListener('error', function(event) {
+      console.error('全局错误:', event.error);
+      document.getElementById('error-container').style.display = 'block';
+    });
+    
+    // 处理Vue实例未能挂载
+    setTimeout(function() {
+      if (!document.querySelector('#app > *')) {
+        document.getElementById('error-container').style.display = 'block';
+      }
+    }, 3000);
+  </script>
+  <!-- built files will be auto injected -->
+</body>
+</html> 
